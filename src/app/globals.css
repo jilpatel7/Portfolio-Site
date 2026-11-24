@@ -291,7 +291,7 @@ h2 {
   border-style: dashed;
   opacity: 0.6;
 }
-.monogram-card {
+.portrait-card {
   width: 300px;
   height: 340px;
   background: #e8eddf;
@@ -306,7 +306,7 @@ h2 {
   position: relative;
   overflow: hidden;
 }
-.monogram-card:after {
+.portrait-card:after {
   content: "";
   position: absolute;
   inset: 0;
@@ -319,8 +319,8 @@ h2 {
   );
   pointer-events: none;
 }
-.monogram-top,
-.monogram-bottom {
+.portrait-top,
+.portrait-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -328,33 +328,26 @@ h2 {
   font-size: 9px;
   letter-spacing: 0.1em;
 }
-.monogram-bottom {
+.portrait-bottom {
   align-items: flex-end;
 }
-.monogram-bottom span:last-child {
+.portrait-bottom span:last-child {
   font-size: 7px;
   max-width: 100px;
   line-height: 1.7;
   text-align: right;
 }
-.monogram {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 190px;
-  letter-spacing: -30px;
-  line-height: 1;
-  color: #31553d;
-  font-style: italic;
-  margin-left: 8px;
+.hero-portrait {
   position: relative;
-  margin-top: -12px;
+  flex: 1;
+  min-height: 0;
+  margin-block: 14px;
+  border-radius: 7px;
+  overflow: hidden;
 }
-.monogram span {
-  color: #31553d;
-}
-.monogram i {
-  color: #8ea87c;
-  font-size: 160px;
-  font-style: normal;
+.hero-portrait-image {
+  object-fit: cover;
+  object-position: center 43%;
 }
 .floating-note {
   position: absolute;
@@ -1167,6 +1160,7 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 28px;
+  align-items: start;
 }
 .credential-panel {
   background: #fafbf8;
@@ -1197,27 +1191,64 @@ h2 {
   font-size: 14px;
   margin-top: 10px;
 }
-.certificate-placeholder {
+.certificate-summary {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   gap: 18px;
-  margin: 28px 0;
-  border: 1px dashed #d3deca;
-  padding: 22px;
-  border-radius: 8px;
-  background: #f1f5ec;
-  color: #829477;
+  margin: 28px 0 20px;
 }
-.certificate-placeholder strong {
-  display: block;
-  font-size: 14px;
-  font-weight: 400;
-  color: #546d48;
+.certificate-summary > div {
+  flex: 1 1 200px;
+  min-width: 0;
 }
-.certificate-placeholder span {
-  display: block;
+.certificate-badge {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.certificate-summary h4 {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #3d5934;
+}
+.certificate-summary p {
   font-size: 12px;
   margin-top: 5px;
+  color: #526348;
+}
+.certificate-preview {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #d3deca;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  color: #3d5934;
+  background: #f1f5ec;
+}
+.certificate-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.certificate-preview span {
+  display: block;
+  padding: 12px;
+  font-size: 13px;
+}
+.certificate-preview:hover {
+  border-color: #66805b;
+}
+.dialog-content.certificate-dialog {
+  width: min(900px, calc(100% - 32px));
+}
+.certificate-full-image {
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
 }
 .testimonial-panel {
   background: #e8eedf;
@@ -1225,24 +1256,53 @@ h2 {
 .testimonial-panel .panel-icon {
   background: #edf3e5;
 }
-.testimonial-placeholder {
-  padding: 24px 0 28px;
-  color: #94a484;
+.testimonial-list {
+  display: grid;
+  gap: 24px;
+  margin-top: 28px;
 }
-.testimonial-placeholder strong {
+.testimonial {
+  margin: 0;
+}
+.testimonial + .testimonial {
+  border-top: 1px solid #cbd7bf;
+  padding-top: 24px;
+}
+.testimonial blockquote {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #3d5934;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.testimonial-author strong,
+.testimonial-author span {
   display: block;
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-size: 23px;
-  line-height: 1.4;
-  color: #607550;
-  margin-top: 8px;
 }
-.testimonial-placeholder span {
+.testimonial-author strong {
+  font-size: 14px;
+  color: #3d5934;
+}
+.testimonial-author span {
   font-size: 12px;
-  color: #7f8d74;
-  display: block;
-  margin-top: 10px;
+  color: #526348;
+  margin-top: 3px;
+}
+.testimonial-panel > .testimonial-source {
+  font-size: 12px;
+  margin: 24px 0 14px;
 }
 .testimonial-panel > .text-link {
   font-size: 13px;
@@ -1572,16 +1632,10 @@ h2 {
   .hero-art {
     height: 440px;
   }
-  .monogram-card {
+  .portrait-card {
     width: 250px;
     height: 300px;
     padding: 18px;
-  }
-  .monogram {
-    font-size: 160px;
-  }
-  .monogram i {
-    font-size: 130px;
   }
   .art-orbit {
     width: 300px;
@@ -1673,25 +1727,17 @@ h2 {
   .hero-art {
     height: 365px;
   }
-  .monogram-card {
+  .portrait-card {
     width: 205px;
     height: 255px;
   }
-  .monogram {
-    font-size: 133px;
-    letter-spacing: -24px;
-    margin-left: 0;
-  }
-  .monogram i {
-    font-size: 100px;
-  }
-  .monogram-top {
+  .portrait-top {
     font-size: 6px;
   }
-  .monogram-bottom {
+  .portrait-bottom {
     font-size: 7px;
   }
-  .monogram-bottom span:last-child {
+  .portrait-bottom span:last-child {
     font-size: 5px;
     width: 70px;
   }
@@ -1900,30 +1946,6 @@ h2 {
   .credential-panel > p {
     font-size: 13px;
   }
-  .certificate-placeholder {
-    gap: 12px;
-    padding: 17px 12px;
-    min-height: 112px;
-  }
-  .certificate-placeholder strong {
-    font-size: 12px;
-  }
-  .certificate-placeholder span {
-    font-size: 10px;
-  }
-  .certificate-placeholder > svg {
-    width: 26px;
-    flex-shrink: 0;
-  }
-  .testimonial-placeholder {
-    min-height: 170px;
-  }
-  .testimonial-placeholder strong {
-    font-size: 21px;
-  }
-  .testimonial-placeholder span {
-    font-size: 11px;
-  }
   .contact-section {
     padding: 75px 0 60px;
   }
@@ -2022,25 +2044,18 @@ h2 {
     width: min(100%, 380px);
     margin: 12px auto 0;
   }
-  .monogram-card {
+  .portrait-card {
     width: 240px;
     height: 280px;
     padding: 19px;
   }
-  .monogram {
-    font-size: 155px;
-    letter-spacing: -27px;
-  }
-  .monogram i {
-    font-size: 115px;
-  }
-  .monogram-top {
+  .portrait-top {
     font-size: 7px;
   }
-  .monogram-bottom {
+  .portrait-bottom {
     font-size: 8px;
   }
-  .monogram-bottom span:last-child {
+  .portrait-bottom span:last-child {
     font-size: 6px;
     width: 90px;
   }
@@ -2269,26 +2284,6 @@ h2 {
   }
   .credential-panel > p {
     font-size: 14px;
-  }
-  .certificate-placeholder {
-    padding: 22px;
-    min-height: auto;
-  }
-  .certificate-placeholder strong {
-    font-size: 14px;
-  }
-  .certificate-placeholder span {
-    font-size: 12px;
-  }
-  .testimonial-placeholder {
-    min-height: auto;
-    padding-bottom: 30px;
-  }
-  .testimonial-placeholder strong {
-    font-size: 24px;
-  }
-  .testimonial-placeholder span {
-    font-size: 12px;
   }
   .contact-section {
     padding: 65px 0 50px;

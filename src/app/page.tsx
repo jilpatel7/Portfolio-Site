@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   BriefcaseBusiness,
   Code2,
@@ -68,16 +69,22 @@ export default function Home() {
             <div className="art-label top-label">
               <span className="small-star">✳</span> BUILT WITH INTENTION
             </div>
-            <div className="monogram-card">
-              <div className="monogram-top">
+            <div className="portrait-card">
+              <div className="portrait-top">
                 <span>DEVELOPER / MAKER</span>
                 <Code2 size={18} />
               </div>
-              <div className="monogram">
-                j<span>p</span>
-                <i>.</i>
+              <div className="hero-portrait">
+                <Image
+                  src={profile.image}
+                  alt="Jil Patel smiling by the sea"
+                  fill
+                  sizes="(max-width: 600px) 202px, (max-width: 800px) 161px, (max-width: 1100px) 214px, 254px"
+                  preload
+                  className="hero-portrait-image"
+                />
               </div>
-              <div className="monogram-bottom">
+              <div className="portrait-bottom">
                 <span>JIL PATEL</span>
                 <span>IDEA → INTERFACE → IMPACT</span>
               </div>

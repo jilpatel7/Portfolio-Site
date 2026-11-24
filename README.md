@@ -16,7 +16,7 @@ Open http://127.0.0.1:3000. Run `npm run typecheck` and `npm run build` to valid
 - Edit `src/data/portfolio.ts` for the profile, projects, skills, and combined experience/education timeline.
 - The resume is served from `public/jil_patel.pdf`.
 - Project visuals are explicitly labeled illustrative concepts. Replace them with approved screenshots when supplied; they are not representations of the actual product UIs.
-- `src/components/coming-content.tsx` holds honest placeholders for certifications and testimonials. Replace with verified content and approved images once supplied.
+- `src/components/coming-content.tsx` displays certifications and LinkedIn recommendations. Edit their details in `src/data/portfolio.ts`; images are in `public/certifications/` and `public/testimonials/`.
 - The resume supplies the LinkedIn and email links. A GitHub link is omitted until the correct profile is provided.
 - Contact links open the visitor's email application. No contact data is collected or stored.
 - Add the real domain and social preview image to metadata when ready for publication.

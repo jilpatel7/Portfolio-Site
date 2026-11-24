@@ -1,9 +1,42 @@
 export const profile = {
   name: "Jil Patel",
+  image: "/jil-patel.jpg",
   email: "pateljil8244@gmail.com",
   linkedin: "https://www.linkedin.com/in/jil-patel-05a520233/",
   resume: "/jil_patel.pdf",
 };
+
+export const certification = {
+  title: "Academy Accreditation - Databricks Fundamentals",
+  issuer: "Databricks",
+  date: "2026-11-20",
+  displayDate: "November 20, 2026",
+  credentialId: "201079442",
+  url: "https://credentials.databricks.com/3c7e15b8-8ef3-40ac-b28f-9691c7859e56",
+  badge: "/certifications/databricks-fundamentals-badge.png",
+  certificate: "/certifications/databricks-fundamentals-certificate.png",
+};
+
+export const testimonials = [
+  {
+    name: "James Keeble",
+    role: "Building Acquisity.ai",
+    image: "/testimonials/james-keeble.jpeg",
+    date: "2026-11-19",
+    displayDate: "November 19, 2026",
+    quote:
+      "I managed Jil at Acquisity and really enjoyed working with him. He's reliable, takes real ownership of his work and always thinks things through before diving in. If something didn't make sense he'd ask, and he wasn't shy about flagging things I'd missed, which I appreciated more than he probably knew. On top of his own work he was always happy to help the rest of the team out. He's a great developer and a genuinely good guy, and I'd happily work with him again.",
+  },
+  {
+    name: "Ben Ford",
+    role: "AI Architect",
+    image: "/testimonials/ben-ford.png",
+    date: "2026-10-27",
+    displayDate: "October 27, 2026",
+    quote:
+      "I worked with Jil for several months on a complex changing project. He always delivered consistently high quality output and was a pleasure to have on the team!",
+  },
+];
 
 export type Project = {
   slug: string;
